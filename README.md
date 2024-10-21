@@ -4,14 +4,17 @@
 [![npm version](https://badge.fury.io/js/%40project-sunbird%2Fgeneric-editor.svg)](https://badge.fury.io/js/%40project-sunbird%2Fgeneric-editor) [![Build Status](https://travis-ci.org/project-sunbird/sunbird-generic-editor.svg?branch=release-1.11.0)](https://travis-ci.org/project-sunbird/sunbird-generic-editor)
 
 ## Introduction
+
 The generic editor is used to create contents which can be uploaded as files(H5P, epub, PDF, HTML, Youtube, Video).
 
 ## Step 1: Installation
 
- Download the content editor using the following command: 
+Download the content editor using the following command:
+
 ```red
 Run npm i @project-sunbird/generic-editor
 ```
+
 ## Step 2: Configure the generic editor
 
 **Required configuration**
@@ -21,14 +24,14 @@ window.context = {
   user: {
     id: "",
     name: "",
-    orgIds: []
+    orgIds: [],
   },
   sid: "",
   contentId: "do_2125953980374712321362",
   pdata: {
     id: "",
     ver: "1.10.",
-    pid: ""
+    pid: "",
   },
   tags: [],
   channel: "",
@@ -38,9 +41,9 @@ window.context = {
   etags: {
     app: [],
     partner: [],
-    dims: []
-  }
-}
+    dims: [],
+  },
+};
 ```
 
 ```js
@@ -54,8 +57,8 @@ window.config = {
     {
       id: "",
       ver: "",
-      type: ""
-    }
+      type: "",
+    },
   ],
   corePluginsPackaged: true,
   dispatcher: "local",
@@ -72,19 +75,19 @@ window.config = {
       {
         id: "",
         ver: "",
-        type: ""
-      }
+        type: "",
+      },
     ],
     splash: {
       text: "",
       icon: "",
       bgImage: "",
-      webLink: ""
+      webLink: "",
     },
     overlay: {
-      showUser: false
+      showUser: false,
     },
-    showEndPage: false
+    showEndPage: false,
   },
   enableTelemetryValidation: false,
   absURL: "",
@@ -92,33 +95,34 @@ window.config = {
     {
       id: "",
       ver: "",
-      type: "plugin"
-    }
+      type: "plugin",
+    },
   ],
   corePlugins: [],
   corePluginMapping: {},
   useProxyForURL: false,
-  cloudStorage: {}
-}
+  cloudStorage: {},
+};
 ```
 
-| Property Name | Description | Default Value   | Example |
-| --- | --- | --- | --- |
-| `user` | It is a `object`, Which should contain the user details(userId, name)  | NA  |
-| `sid` | It is a `string`, Session identifier  | NA  |
-| `contentId ` | It is a `string`,  content identifier | NA  |
-| `pdata ` | It is a `object`,  producer information.It can have producer version, producer Id | NA  |
-| `tags ` | It is a `array`,  Encrypted dimension tags passed by respective channels| NA  |
-| `channel ` | It is a `string`,  Channel which has produced the event| NA  |
-| `framework ` | It is a `string`, example:NCF, NCERT| NA  |
-| `baseURL ` | It is a `string`, host url| NA  |
-| `corePluginsPackaged ` | It is a `boolean`, Which enables the collection-editor to load the plugins from packaged script rather than individual  | true  |
-| `pluginRepo ` | It is a `string`, From which location plugins should load  | /plugins  |
-| `dispatcher ` | It is a `string`,Where the telemetry should log ex(console, piwik, library, local) | console |
-| `plugins ` | It is a `array`, Array of plugins ex:`[{id:"org.sunbird.header",ver:"1.0",type:"plugin"}]`| NA |
-| `cloudStorage` |  It is `object` and which defines cloud storage configuration which contains provider & presigned_headers for diff service provider for example: Azure, AWS | ``` cloudStorage: { provider: azure, presigned_headers: { 'x-ms-blob-type': 'BlockBlob' // This header is specific to azure storage provider. } } ``` | The default configuration can be overwrite by passing empty headers. ***For example:*** If you don't want to pass any headers for AWS than pass as empty headers as below: ``` cloudStorage: { provider: azure, presigned_headers: { } } ```
+| Property Name          | Description                                                                                                                                                | Default Value                                                                                                                                   | Example                                                                                                                                                                                                                                |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user`                 | It is a `object`, Which should contain the user details(userId, name)                                                                                      | NA                                                                                                                                              |
+| `sid`                  | It is a `string`, Session identifier                                                                                                                       | NA                                                                                                                                              |
+| `contentId `           | It is a `string`, content identifier                                                                                                                       | NA                                                                                                                                              |
+| `pdata `               | It is a `object`, producer information.It can have producer version, producer Id                                                                           | NA                                                                                                                                              |
+| `tags `                | It is a `array`, Encrypted dimension tags passed by respective channels                                                                                    | NA                                                                                                                                              |
+| `channel `             | It is a `string`, Channel which has produced the event                                                                                                     | NA                                                                                                                                              |
+| `framework `           | It is a `string`, example:NCF, NCERT                                                                                                                       | NA                                                                                                                                              |
+| `baseURL `             | It is a `string`, host url                                                                                                                                 | NA                                                                                                                                              |
+| `corePluginsPackaged ` | It is a `boolean`, Which enables the collection-editor to load the plugins from packaged script rather than individual                                     | true                                                                                                                                            |
+| `pluginRepo `          | It is a `string`, From which location plugins should load                                                                                                  | /plugins                                                                                                                                        |
+| `dispatcher `          | It is a `string`,Where the telemetry should log ex(console, piwik, library, local)                                                                         | console                                                                                                                                         |
+| `plugins `             | It is a `array`, Array of plugins ex:`[{id:"org.sunbird.header",ver:"1.0",type:"plugin"}]`                                                                 | NA                                                                                                                                              |
+| `cloudStorage`         | It is `object` and which defines cloud storage configuration which contains provider & presigned_headers for diff service provider for example: Azure, AWS | `cloudStorage: { provider: azure, presigned_headers: { 'x-ms-blob-type': 'BlockBlob' // This header is specific to azure storage provider. } }` | The default configuration can be overwrite by passing empty headers. **_For example:_** If you don't want to pass any headers for AWS than pass as empty headers as below: `cloudStorage: { provider: azure, presigned_headers: { } }` |
 
 ## Step 3: Integration
+
 ```js
   openGenericEditor() {
     jQuery.fn.iziModal = iziModal;
@@ -143,30 +147,57 @@ window.config = {
 ```
 
 # How to setup sunbird-generic-editor in local
-1. Clone this sunbird-generic-editor repo from [here](https://github.com/project-sunbird/sunbird-generic-editor) 
-2. Clone the sunbird-content-plugins repo from [here](https://github.com/project-sunbird/sunbird-content-plugins) 
+
+1. Clone this sunbird-generic-editor repo from [here](https://github.com/project-sunbird/sunbird-generic-editor)
+2. Clone the sunbird-content-plugins repo from [here](https://github.com/project-sunbird/sunbird-content-plugins)
 3. Go to the root directory sunbird-generic-editor.
 4. Run `npm install` to install node modules.
 5. `cd app` and run `bower install` to install bower components
-6. Create a symlink to 'sunbird-content-plugins' (`ln -s ../sunbird-content-plugins plugins`) 
->On Windows: use `mklink`
+6. Create a symlink to 'sunbird-content-plugins' (`ln -s ../sunbird-content-plugins plugins`)
+   > On Windows: use `mklink`
 7. Configure the genric editor [here](https://github.com/project-sunbird/sunbird-genric-editor#how-to-configure-the-sunbird-generic-editor)
-7. Run `node app`
-8. Open Chrome and visit this link: http://localhost:3000/app
-
+8. Run `node app`
+9. Open Chrome and visit this link: http://localhost:3000/app
 
 ## ChangeLogs
-   For changes logs please refer [here](https://github.com/project-sunbird/sunbird-generic  -editor/releases) 
 
-  
- >For sunbird-generic-editor demo please visit [here](https://staging.open-sunbird.org/workspace/content/create)   
+For changes logs please refer [here](https://github.com/project-sunbird/sunbird-generic -editor/releases)
 
+> For sunbird-generic-editor demo please visit [here](https://staging.open-sunbird.org/workspace/content/create)
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/project-sunbird/sunbird-generic-editor/blob/master/LICENSE) file for details
 
 ## Versioning
+
 We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags](https://github.com/project-sunbird/sunbird-generic-editor/tags) on this repository.
 
 ## Any Issues?
+
 We have an open and active [issue tracker](https://project-sunbird.atlassian.net/issues/). Please report any issues.
+
+### Creating a Generic Editor Build
+
+To create a build for the **Generic Editor**, follow these steps:
+
+1. Navigate to the root folder of the `sunbird-generic-editor` project.
+
+2. Run the following command, replacing `release-5.2.1` with the branch name and `1.0` with the version name:
+
+   ```bash
+   bash build.sh <branch-name> <version-name> true
+   ```
+
+   Example:
+
+   ```bash
+   bash build.sh release-5.2.1 1.0 true
+   ```
+
+3. The build process will generate all the necessary deployable files and folders inside the `generic-editor` directory within the `sunbird-generic-editor` project.
+
+### Notes:
+
+- **Branch name:** Replace `<branch-name>` with the appropriate Git branch.
+- **Version name:** Replace `<version-name>` with the version you are building.
