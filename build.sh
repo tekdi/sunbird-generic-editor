@@ -15,10 +15,17 @@ nvm use $NODE_VERSION
 export version_number=$branch_name
 export build_number=$commit_hash
 rm -rf generic-editor
+rm -rf dist
+rm -rf node_modules
+[ -f package-lock.json ] && rm package-lock.json
+[ -f generic-editor.zip ] && rm generic-editor.zip
+rm -rf app/bower_components
 sudo apt-get install build-essential libpng-dev
 node -v
 npm -v 
 npm install
+npm install -g bower
+npm install --global gulp-cli
 cd app
 bower cache clean
 bower install --force
@@ -26,6 +33,7 @@ cd ..
 gulp packageCorePlugins
 npm run plugin-build
 npm run build
+npm run build-npm-pkg
 #gulp build
 if [ $runTest == true ]
 then

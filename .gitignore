@@ -7,3 +7,6 @@
 /plugins
 telemetry.json
 coverage
+/dist
+/generic-editor
+/generic-editor.zip
