@@ -24,6 +24,16 @@
     <link rel="stylesheet" href="styles/fonts-override.css">  
     <!-- <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" /> -->
     <!-- endinject -->
+    <style>
+        #genericEditorSideBar{
+            display: none;
+        }
+
+        /* Hide all elements with the exact markup or class for the icon */
+        i.download.icon.custom-icon {
+          display: none !important;
+        }
+    </style>
 </head>
 
 <body class="ui fluid container">
@@ -85,6 +95,21 @@
             backgroundColor: '#bbbbbb',
             loadingHtml: "<div class='sk-cube-grid'> <div class='sk-cube sk-cube1'></div> <div class='sk-cube sk-cube2'></div> <div class='sk-cube sk-cube3'></div> <div class='sk-cube sk-cube4'></div> <div class='sk-cube sk-cube5'></div> <div class='sk-cube sk-cube6'></div> <div class='sk-cube sk-cube7'></div> <div class='sk-cube sk-cube8'></div> <div class='sk-cube sk-cube9'></div> </div><p class='loading-message'>Loading Editor...</p>"
         });
+    </script>
+    <script>
+        const interval = setInterval(() => {
+          try {
+            const elem = document.querySelector('i.download.icon.custom-icon');
+  
+            if (elem && elem.parentElement) {
+              elem.parentElement.style.display = 'none';
+              clearInterval(interval); // stop loop
+            }
+          } catch (err) {
+            console.error('Error while hiding download icon:', err);
+            clearInterval(interval); // stop to avoid infinite errors
+          }
+        }, 100);
     </script>
 </body>
 
